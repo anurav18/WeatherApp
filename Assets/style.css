@@ -1,0 +1,29 @@
+nav{
+    color:white;
+   
+}
+.navbar-brand{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 40px;
+}
+.city-block{
+    height: 30px;
+    background-color: lightblue;
+}
+
+.city-span{
+    margin-left: auto;
+    margin-right: auto;
+}
+.selected-cities{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.card{
+    max-width: 17%;
+    margin: 10px;
+    color:white;
+    background-color:rgb(5, 81, 223)
+}
