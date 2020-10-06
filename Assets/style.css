@@ -37,5 +37,9 @@ nav{
 
 #left-nav{
     margin-left:0px;
-    width:20rem;
+    width:100%;
+}
+
+body{
+    background: linear-gradient(to right, rgb(245, 241, 241) 25%,white 0%);
 }
