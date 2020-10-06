@@ -7,10 +7,10 @@ nav{
     margin-right: auto;
     font-size: 40px;
 }
-.city-block{
+/* .city-block{
     height: 30px;
     background-color: lightblue;
-}
+} */
 
 .city-span{
     margin-left: auto;
@@ -22,8 +22,20 @@ nav{
 }
 
 .card{
-    max-width: 17%;
-    margin: 10px;
-    color:white;
-    background-color:rgb(5, 81, 223)
+    
+    margin: 20px;
+    
+}
+
+.card-body{
+    float: left;
+}
+
+#cities-list{
+    text-align: left;
+}
+
+#left-nav{
+    margin-left:0px;
+    width:20rem;
 }
