@@ -1,8 +1,8 @@
 
-// Api key for open weather app
-var apikey = "5a16da0f6c2273bd4b86510d10778287";
+// Enter an api key for open weather app
+var apikey = prompt("Enter the api key");
 
-
+//Array to store the search history
 let userData = JSON.parse(localStorage.getItem("userData")) || [];
 for (let i = 0; i < userData.length; i++) 
 {
@@ -10,21 +10,28 @@ for (let i = 0; i < userData.length; i++)
     cityList(cityInput);
 }
 
+// Event handler for search button
 $("#add-city").on("click",function(event){
     event.preventDefault();
-    
     var cityInput = $("#city-input").val();
-    cityList(cityInput);
-    userData.push({cityName:cityInput});
-    localStorage.setItem("userData",JSON.stringify(userData));
-   $("#add-city").attr("cityName",cityInput);
-   displayWeatherInfo(cityInput);
-
+    //If the user tries to search without any input
+    if(cityInput === "")
+    {
+        alert("enter a city name");
+    }
+    else
+    {
+      cityList(cityInput);
+      userData.push({cityName:cityInput});
+      localStorage.setItem("userData",JSON.stringify(userData));
+      $("#add-city").attr("cityName",cityInput);
+      displayWeatherInfo(cityInput);
+      $("#city-input").val("");
+    }
 });
 
 
-// creating a list of cities for the search history
-
+// creating a list of cities based on the search history
 function cityList(cityInput)
 {
     let ulEl = $("#cities-list");
@@ -34,7 +41,7 @@ function cityList(cityInput)
     newliEl.attr("cityName",cityInput);
 }
 
-
+//Display weather information
 function displayWeatherInfo(city){
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+ city +"&appid=" + apikey;
     $.ajax({
@@ -56,10 +63,10 @@ function displayWeatherInfo(city){
 }
 
 //Temparature conversion 
-
 function convertKtoF(tempInKelvin) {
     return ((tempInKelvin - 273.15) * 9) / 5 + 32;
   }
+
 //Date Formatting
 function ISOtoDate(isodateformat)
 {
@@ -68,8 +75,8 @@ function ISOtoDate(isodateformat)
     var yearformat = (isodateformat).substring(0,4);
     return(monthformat+"/"+dateformat+"/"+yearformat);
 }
-//calculate UV Index
 
+//calculate UV Index
 function CalculateUVIndex(lat,long){
    var queryURL =  "http://api.openweathermap.org/data/2.5/uvi?lat="+lat+"&lon="+long+"&appid="+apikey;
         $.ajax({
@@ -95,7 +102,6 @@ function CalculateUVIndex(lat,long){
 }
 
 //5 day forecast weather
-
 function forecast(city)
 {
     var newRowEl = $("#forecast-5day");
@@ -133,7 +139,6 @@ function forecast(city)
 }
 
 //Click event handler for all the elements declared with class city-block
-
 $(document).on("click","li",function(event){
 event.preventDefault();
 var city = $(this).attr("cityName");
