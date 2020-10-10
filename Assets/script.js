@@ -146,3 +146,4 @@ displayWeatherInfo(city);
 });
 
 
+localStorage.clear();
