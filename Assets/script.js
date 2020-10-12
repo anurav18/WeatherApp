@@ -52,7 +52,7 @@ function displayWeatherInfo(city){
     $(".display-Temparature").html("Temparature: "+ (convertKtoF(response.main.temp)).toFixed(2) + "&deg;F");
     $(".display-Humidity").text("Humidity: "+response.main.humidity+"%");
     $(".display-Windspeed").text("Wind Speed: "+response.wind.speed+"MPH");
-    var imageSrc = " http://openweathermap.org/img/wn/"+response.weather[0].icon+".png";
+    var imageSrc = " https://openweathermap.org/img/wn/"+response.weather[0].icon+".png";
     $("#cloud-Image").attr("src",imageSrc);
     var long = response.coord.lon;
     var lat = response.coord.lat;
@@ -78,7 +78,7 @@ function ISOtoDate(isodateformat)
 
 //calculate UV Index
 function CalculateUVIndex(lat,long){
-   var queryURL =  "http://api.openweathermap.org/data/2.5/uvi?lat="+lat+"&lon="+long+"&appid="+apikey;
+   var queryURL =  "https://api.openweathermap.org/data/2.5/uvi?lat="+lat+"&lon="+long+"&appid="+apikey;
         $.ajax({
             url: queryURL,
             method:"GET"
@@ -106,7 +106,7 @@ function forecast(city)
 {
     var newRowEl = $("#forecast-5day");
     newRowEl.empty();
-    var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid="+apikey;
+    var queryURL3 = "https://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid="+apikey;
     $.ajax({
         url:queryURL3,
         method:"GET"
@@ -124,7 +124,7 @@ function forecast(city)
                 var cardimageElp = $("<p class='card-text'>");
                 cardbodyEl.append(cardimageElp);
                 var imageEl = $("<img class='imgsrc'>");
-                var cardimgsrc11 = "http://openweathermap.org/img/wn/"+response.list[i].weather[0].icon+".png";
+                var cardimgsrc11 = "https://openweathermap.org/img/wn/"+response.list[i].weather[0].icon+".png";
                 imageEl.attr("src",cardimgsrc11);
                 cardimageElp.append(imageEl);
                 var cardtempEl = $("<p class='card-text'>");
