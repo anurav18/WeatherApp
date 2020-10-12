@@ -89,7 +89,7 @@ function CalculateUVIndex(lat,long){
             {
                 $(".display-UVindex").html("UV Index: <span style='height:25px;background-color:green;color:white'>"+response.value+"</span>");
             }
-            else if(response.value >=3 && response.value <= 7)
+            else if(response.value >2 && response.value <= 7)
             {
                 $(".display-UVindex").html("UV Index: <span style='height:25px;background-color:orange;color:white'>"+response.value+"</span>");
             }
@@ -145,5 +145,3 @@ var city = $(this).attr("cityName");
 displayWeatherInfo(city);
 });
 
-
-localStorage.clear();
