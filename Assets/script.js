@@ -1,6 +1,6 @@
 
 // Enter an api key for open weather app
-var apikey = prompt("Enter the api key");
+var apikey = "fd8e3b4dd5f260d4ef1f4327d6e0279a";
 
 //Array to store the search history
 let userData = JSON.parse(localStorage.getItem("userData")) || [];
@@ -145,3 +145,16 @@ var city = $(this).attr("cityName");
 displayWeatherInfo(city);
 });
 
+const arr = [10, 12, 15, 21];
+for (var i = 0; i < arr.length; i++) {
+  setTimeout(function() {
+    console.log('Index: ' + i + ', element: ' + arr[i]);
+  }, 3000);
+}
+
+var array = [1, 2, 3, 4, 5]
+for(var i = 0; i < array.length; i++) {
+  setTimeout(() => {
+    console.log(i+ ' '+array[i])
+  }, 3000);
+}
